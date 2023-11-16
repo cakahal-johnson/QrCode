@@ -1,0 +1,79 @@
+function generateQRCode() {
+    // Get student name and laptop tag from input fields
+    const studentName = document.getElementById('studentName').value;
+    const studentClass = document.getElementById('studentClass').value;
+    const studentSet = document.getElementById('studentSet').value;
+    const laptopTag = document.getElementById('laptopTag').value;
+
+    // Combine student name and laptop tag to create a unique identifier
+    const data = `${studentName} - ${studentClass} ${studentSet} - ${laptopTag}`;
+
+    // Create QR Code
+    const qrcode = new QRCode(document.getElementById('qrcode'), {
+        text: data,
+        width: 200,
+        height: 200
+    });
+
+    const users_name = document.getElementById('users_name')
+    const users_class = document.getElementById('users_class')
+    const users_set = document.getElementById('users_set')
+    const users_tag = document.getElementById('users_tag')
+    users_name.innerHTML = studentName;
+    users_class.innerHTML = studentClass;
+    users_set.innerHTML = studentSet;
+    users_tag.innerHTML = laptopTag;
+    
+
+
+
+// const userList = document.querySelector('#users')
+
+// const li = document.createElement('li');
+// li.appendChild(document.createTextNode(`${studentName} ${studentClass} ${studentSet}  ${laptopTag}`));
+
+// userList.appendChild(li);
+
+// // clear fields
+// studentName.value = '';
+// studentClass.value = '';
+// studentSet.value = '';
+// laptopTag.value = '';
+
+// console.log(li)
+
+}
+
+// function generateQRCode() {
+//     var studentName = document.getElementById('studentName').value;
+//     var studentClass = document.getElementById('studentClass').value;
+//     var studentSet = document.getElementById('studentSet').value;
+//     var laptopTag = document.getElementById('laptopTag').value;
+
+//     // Check if the tag is already associated with another student
+//     if (isTagUnique(laptopTag)) {
+//         // The tag is unique, generate the QR Code
+//         var combinedData = studentName + " - " + laptopTag;
+//         var qrCodeDiv = document.getElementById('qrcode');
+//         qrCodeDiv.innerHTML = "";
+
+//         var qrcode = new QRCode(qrCodeDiv, {
+//             text: combinedData,
+//             width: 200,
+//             height: 200
+//         });
+//     } else {
+//         // Display an error message or take appropriate action
+//         alert("This laptop tag is already assigned to another student. Please choose a different tag.");
+//     }
+// }
+
+// function isTagUnique(tag) {
+//     // Implement logic to check if the tag is unique
+//     // This could involve checking against a list of existing tags, making an API call, or checking a database
+//     // For simplicity, let's assume you have an array to store existing tags
+//     var existingTags = ["tag1", "tag2", "tag3"]; // Replace with your actual data structure
+
+//     // Check if the tag is not in the existingTags array
+//     return !existingTags.includes(tag);
+// }
