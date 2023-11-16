@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
     <title>QR Code Generator</title>
 </head>
+<style>
+    @media print {
+        #btnModal{
+            display: none;
+        }
+        
+    }
+</style>
 <body>
      <h1>Techxagon - St Patrick's Laptop Tags Generator</h1>
 
@@ -43,13 +52,47 @@
         <label for="laptopTag">Laptop Tag:</label>
         <input required type="text" id="laptopTag" placeholder="Enter laptop tag">
 
-        <button onclick="generateQRCode()">Generate QR Code</button>
+        
+        
+ 
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Tag Result:</h2>
+                </div>
+                <div class="modal-body">
+                    <p >Student Name: <span id="users_name"></span></p>
+                    <p >Student Class: <span id="users_class"></span> :
+                        <span id="users_set"></span>
+                    
+                    </p>
+                    <p >Laptop Tag: <span id="users_tag"></span></p>
+                    <ul id="users"></ul>
+                    <div id="qrcode"></div>
+                    <button id="btnModal" onclick="generateQRCode()">Show Code</button>
+                    <button id="btnModal" onclick="print()">Print Code</button>
+        <p>Techxagon-ICT practical Key...</p>
+      </div>
+      <div class="modal-footer">
+        <p style="color: tomato; font-size: smaller; float: right;" >Cakahal Johnson &#10083;</p>
+      </div>
+    </div>
+  
+  </div>
+
        
 
-        <div id="qrcode"></div>
+  <button class="button" id="myBtn">Generate QR Code</button>
     </div>
+
+    <!-- <div id="qrcode"></div> -->
 
     <script src="qrcode.min.js"></script>
     <script src="script.js"></script>
+    <script src="modal.js"></script>
 </body>
 </html>
